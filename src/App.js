@@ -110,7 +110,7 @@ const App = () => {
       
       <Section title="지금 바로 참여하세요!" emoji="👥" className="bg-indigo-600 text-white text-center">
         <a 
-          href="#" // 실제 신청 링크로 변경해주세요
+          href="https://forms.gle/VoZrPH2w4mU445Hy9" // 실제 신청 링크로 변경해주세요
           target="_blank" 
           rel="noopener noreferrer" 
           className="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-indigo-100 transition duration-300"
