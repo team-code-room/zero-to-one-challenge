@@ -193,10 +193,6 @@ const App = () => {
             <footer className="bg-gray-800 text-white py-8 text-center">
                 <p>&copy; 2024 파이오니어 티칭 캠프. All rights reserved.</p>
             </footer>
-
-            <footer className="bg-gray-800 text-white py-8 text-center">
-                <p>&copy; 2024 파이오니어 티칭 캠프. All rights reserved.</p>
-            </footer>
         </div>
     );
 };
