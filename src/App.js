@@ -1,13 +1,48 @@
 import React from 'react';
 import { DollarSign, Megaphone, Lightbulb, Settings, GraduationCap } from 'lucide-react';
+import teachingIllustration from './assets/images/teaching.jpeg';
+import joinNowIllustration from './assets/images/join_now.jpeg';
 
 const Header = () => (
-    <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-20 text-center">
-        <h1 className="text-5xl font-bold mb-4">파이오니어 티칭 캠프</h1>
-        <p className="text-2xl max-w-3xl mx-auto">
-            "30일 간의 온라인 개발 강의 제작 판매로 수익화 실현"
-        </p>
+    <header className="relative bg-black text-white py-20 text-center">
+        <div
+            className="absolute inset-0 bg-cover bg-center z-0"
+            style={{
+                backgroundImage: `url(${teachingIllustration})`,
+                filter: 'brightness(50%)'
+            }}
+        />
+        <div className="relative z-10">
+            <h1 className="text-5xl font-bold mb-4">파이오니어 티칭 캠프</h1>
+            <p className="text-2xl max-w-3xl mx-auto">
+                "30일 간의 온라인 개발 강의 제작 판매로 수익화 실현"
+            </p>
+        </div>
     </header>
+);
+
+const JoinNowSection = () => (
+    <section className="relative py-20 text-white text-center">
+        <div
+            className="absolute inset-0 bg-cover bg-center z-0"
+            style={{
+                backgroundImage: `url(${joinNowIllustration})`,
+                filter: 'brightness(70%)'
+            }}
+        />
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-8">지금 바로 참여하세요!</h2>
+            <p className="text-xl mb-8">당신의 잠재력을 깨우고 새로운 기회를 만들어보세요.</p>
+            <a
+                href="https://forms.gle/VoZrPH2w4mU445Hy9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-white text-indigo-600 font-bold py-4 px-8 rounded-full text-xl hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl"
+            >
+                파이오니어 티칭 캠프 신청하기
+            </a>
+        </div>
+    </section>
 );
 
 const Section = ({ title, children, emoji, bgColor = "bg-white" }) => (
@@ -175,20 +210,7 @@ const App = () => {
                 </div>
             </Section>
 
-            <section className="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center">
-                <div className="max-w-4xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold mb-8">지금 바로 참여하세요!</h2>
-                    <p className="text-xl mb-8">당신의 잠재력을 깨우고 새로운 기회를 만들어보세요.</p>
-                    <a
-                        href="https://forms.gle/VoZrPH2w4mU445Hy9" // 실제 신청 링크로 변경해주세요
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block bg-white text-indigo-600 font-bold py-4 px-8 rounded-full text-xl hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl"
-                    >
-                        파이오니어 티칭 캠프 신청하기
-                    </a>
-                </div>
-            </section>
+            <JoinNowSection />
 
             <footer className="bg-gray-800 text-white py-8 text-center">
                 <p>&copy; 2024 파이오니어 티칭 캠프. All rights reserved.</p>
