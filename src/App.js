@@ -1,5 +1,5 @@
 import React from 'react';
-import { DollarSign, Megaphone, Lightbulb, Settings, GraduationCap } from 'lucide-react';
+import {DollarSign, Megaphone, Lightbulb, Settings, GraduationCap, User} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
 
@@ -160,6 +160,11 @@ const App = () => {
             title: "무료 강의",
             description: "양질의 다양한 강의 수강권 무료 지급 (Flutter, Python, Unity, 자동화 등)",
             icon: GraduationCap
+        },
+        {
+            title: "셀프 브랜딩 실현",
+            description: "개인 브랜드 구축 및 전문가로서의 입지 확립 지원",
+            icon: User
         },
     ];
 
