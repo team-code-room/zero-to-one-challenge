@@ -1,7 +1,9 @@
 import React from 'react';
-import {DollarSign, Megaphone, Lightbulb, Settings, GraduationCap, User} from 'lucide-react';
+import {DollarSign, Megaphone, Lightbulb, Settings, GraduationCap, User, Brain, Award, Target, Zap, Briefcase, ArrowRight} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
+import Team from './components/Team';
+import MetaCognition from './components/MetaCognition';
 
 const Header = () => (
     <header className="relative bg-black text-white py-20 text-center">
@@ -13,7 +15,7 @@ const Header = () => (
             }}
         />
         <div className="relative z-10">
-            <h1 className="text-5xl font-bold mb-4">파이오니어 티칭 캠프</h1>
+            <h1 className="text-5xl font-bold mb-4">파이프 코칭 캠프</h1>
             <p className="text-2xl max-w-3xl mx-auto">
                 "30일 간의 온라인 개발 강의 제작 판매로 수익화 실현"
             </p>
@@ -39,7 +41,7 @@ const JoinNowSection = () => (
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-indigo-600 font-bold py-4 px-8 rounded-full text-xl hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl"
             >
-                파이오니어 티칭 캠프 신청하기
+                파이프 코칭 캠프 신청하기
             </a>
         </div>
     </section>
@@ -92,50 +94,103 @@ const BenefitCard = ({ title, description, icon: Icon }) => (
     </div>
 );
 
+const HorizontalFlowChart = ({ steps }) => (
+  <div className="flex flex-col md:flex-row justify-between items-center my-8 overflow-x-auto">
+    {steps.map((step, index) => (
+      <React.Fragment key={index}>
+        <div className="flex flex-col items-center mb-4 md:mb-0 mx-4">
+          <div className="w-20 h-20 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xl font-bold mb-2">
+            {index + 1}
+          </div>
+          <div className="text-center w-40">
+            <h3 className="font-semibold mb-2">{step.title}</h3>
+            <p className="text-sm text-gray-600">{step.description}</p>
+          </div>
+        </div>
+        {index < steps.length - 1 && (
+          <ArrowRight className="hidden md:block w-8 h-8 text-indigo-500 mx-2" />
+        )}
+      </React.Fragment>
+    ))}
+  </div>
+);
+
 const App = () => {
     const programSteps = [
         {
-            title: "사전 인터뷰",
+            title: "온보딩 인터뷰",
+            description: "신청서 내용 기반 온라인 인터뷰 (Zoom/Google Meet)"
+        },
+        {
+            title: "킥오프 인터뷰",
+            description: "오프라인 인터뷰 및 준비사항 안내 (서울 독산역 인근)"
+        },
+        {
+            title: "강의 계획서 작성",
+            description: "강의 내용 및 목표 설정, 기본 방향성 수립"
+        }
+    ];
+
+    const curriculumSteps = [
+        {
+            title: "1주차: 강의 커리큘럼 목록 설계",
             description: [
-                "온보딩 인터뷰: 신청서 작성 내용을 토대로 인터뷰를 진행합니다. (온라인 원격회의 Zoom Or Google Meet)",
-                "컬쳐 핏을 체크하기 위한 질답을 주고받습니다.",
-                "킥오프 인터뷰: 온보딩 내용을 바탕으로 오프라인 인터뷰를 실시합니다. (서울 독산역 인근)",
-                "챌린지 시작에 앞서 필요한 준비들을 안내합니다."
+                "수강자를 배려한 매력적인 커리큘럼 구성",
+                "학습적 측면에서 효과적인 커리큘럼 설계",
+                "꼭 필요한 내용으로 구성된 매력적인 강의 구조 만들기"
             ]
         },
         {
-            title: "1주차: 강의 계획서 작성",
+            title: "2주차: 영상 촬영",
             description: [
-                "내가 가장 잘 준비할 수 있는 강의 내용들을 정리해보는 시간을 가집니다.",
-                "지금까지 학습해온 내용 기반으로 강의의 기본적인 내용과 목표를 설정합니다."
-            ]
-        },
-        {
-            title: "2주차: 강의 커리큘럼 목록 세팅 및 영상 촬영",
-            description: [
-                "정해진 강의 제작의 방향성을 토대로 학습적인 측면에서 수강자들을 배려한 커리큘럼 목록들을 설계합니다.",
-                "꼭 필요한 내용들로만 꾹꾹 담아볼 수 있는 매력적인 구성을 만듭니다.",
-                "자신에게 맞는 최적의 공간에서 영상 녹화를 진행합니다. IT 강의의 특성상 컴퓨터 화면 녹화 기능을 활용합니다."
+                "최적의 환경에서 강의 영상 촬영",
+                "IT 강의 특성에 맞는 화면 녹화 기법 학습",
+                "효과적인 강의 전달을 위한 발표 스킬 향상"
             ]
         },
         {
             title: "3주차: 강의 영상 편집",
             description: [
-                "촬영된 영상들을 편집 툴을 활용하여 편집을 합니다.",
-                "최적의 단축키 세팅으로 편집을 손쉽게 할 수 있는 방법을 안내합니다."
+                "효과적인 편집 툴 활용 및 기술 습득",
+                "최적의 단축키 세팅으로 편집 효율 극대화",
+                "수강생의 집중도를 높이는 편집 기법 학습"
             ]
         },
         {
             title: "4주차: 강의 제작 완료 및 플랫폼 런칭",
             description: [
-                "완성된 강의 내용을 토대로 강의 설명과 대상 타겟층, 강의를 들었을 때의 얻을 수 있는 것 등의 내용들을 기록합니다.",
-                "준비가 되면 강의를 플랫폼에 런칭하여 수익을 창출합니다.",
-                "차후 강의 운영 관리 세팅: 질문 & 답변 시스템 채널 운영, 셀프 마케팅 수행 방법, 강의 활성화 방안 연구, 멘토링 시스템의 활용으로 추가적인 수익화 루트 개척"
+                "최종 점검 및 온라인 플랫폼 업로드",
+                "강의 설명, 대상 타겟층, 기대효과 등 상세 정보 작성",
+                "질문 & 답변 시스템 채널 운영 방법 학습",
+                "셀프 마케팅 및 강의 활성화 방안 연구"
             ]
         },
     ];
 
-    const benefits = [
+    const challengeCompletionBenefits = [
+        {
+            title: "강의 제작 스킬",
+            description: "전문적인 온라인 강의 제작 능력 획득",
+            icon: GraduationCap
+        },
+        {
+            title: "메타 인지 능력",
+            description: "자기 주도적 학습과 문제 해결 능력 향상",
+            icon: Lightbulb
+        },
+        {
+            title: "포트폴리오",
+            description: "실제 제작한 강의로 포트폴리오 구축",
+            icon: Briefcase
+        },
+        {
+            title: "네트워킹",
+            description: "같은 목표를 가진 동료들과의 네트워크 형성",
+            icon: User
+        },
+    ];
+
+    const challengeSuccessBenefits = [
         {
             title: "수익 공유",
             description: "온라인 강의 플랫폼 강의 판매 수익 쉐어",
@@ -149,7 +204,7 @@ const App = () => {
         {
             title: "컨설팅 제공",
             description: "실전 프로젝트 웹 / 앱 서비스 출시 컨설팅 제공",
-            icon: Lightbulb
+            icon: Target
         },
         {
             title: "지속적 관리",
@@ -159,12 +214,12 @@ const App = () => {
         {
             title: "무료 강의",
             description: "양질의 다양한 강의 수강권 무료 지급 (Flutter, Python, Unity, 자동화 등)",
-            icon: GraduationCap
+            icon: Award
         },
         {
             title: "셀프 브랜딩 실현",
             description: "개인 브랜드 구축 및 전문가로서의 입지 확립 지원",
-            icon: User
+            icon: Zap
         },
     ];
 
@@ -172,9 +227,9 @@ const App = () => {
         <div className="font-sans">
             <Header />
 
-            <Section title="파이오니어 티칭 캠프란?" emoji="🚀" bgColor="bg-gray-50">
+            <Section title="파이프 코칭 캠프란?" emoji="🚀" bgColor="bg-gray-50">
                 <p className="text-lg text-gray-700 mb-4">
-                    파이오니어 티칭 캠프는 기존의 개발자들이 단순히 코딩에만 몰입하거나,
+                    파이프 코칭 캠프는 기존의 개발자들이 단순히 코딩에만 몰입하거나,
                     개발적인 부분에 사로잡혀서 자신의 잠재력을 찾을 여유가 없는 분들을 위해 준비한 챌린지 프로그램입니다.
                 </p>
                 <p className="text-lg text-gray-700">
@@ -184,13 +239,29 @@ const App = () => {
                 </p>
             </Section>
 
-            <Section title="프로그램 진행 과정" emoji="🔽">
-                <Timeline steps={programSteps} />
+            <MetaCognition />
+
+            <Section title="사전 준비 밋업" emoji="🔽">
+                <HorizontalFlowChart steps={programSteps} />
             </Section>
 
-            <Section title="챌린지 성공 혜택" emoji="✅" bgColor="bg-gray-50">
+            <Section title="코칭 캠프 커리큘럼" emoji="📚" bgColor="bg-gray-50">
+                <Timeline steps={curriculumSteps} />
+            </Section>
+
+            <Team />
+
+            <Section title="챌린지 완성 혜택" emoji="🏆" bgColor="bg-gray-50">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {challengeCompletionBenefits.map((benefit, index) => (
+                        <BenefitCard key={index} {...benefit} />
+                    ))}
+                </div>
+            </Section>
+
+            <Section title="챌린지 성공 혜택" emoji="🌟">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {benefits.map((benefit, index) => (
+                    {challengeSuccessBenefits.map((benefit, index) => (
                         <BenefitCard key={index} {...benefit} />
                     ))}
                 </div>
@@ -218,7 +289,7 @@ const App = () => {
             <JoinNowSection />
 
             <footer className="bg-gray-800 text-white py-8 text-center">
-                <p>&copy; 2024 파이오니어 티칭 캠프. All rights reserved.</p>
+                <p>&copy; 2024 파이프 코칭 캠프. All rights reserved.</p>
             </footer>
         </div>
     );
