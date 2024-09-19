@@ -1,5 +1,5 @@
 import React from 'react';
-import {DollarSign, Megaphone, Lightbulb, Settings, GraduationCap, User, Brain, Award, Target, Zap, Briefcase, ArrowRight} from 'lucide-react';
+import {DollarSign, Megaphone, Lightbulb, Settings, GraduationCap, User, Award, Target, Zap, Briefcase, ArrowRight} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
 import Team from './components/Team';
