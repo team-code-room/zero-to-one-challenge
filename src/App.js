@@ -2,8 +2,6 @@ import React from 'react';
 import {DollarSign, Megaphone, Lightbulb, Settings, GraduationCap, User, Award, Target, Zap, Briefcase, ArrowRight} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
-import Team from './components/Team';
-import MetaCognition from './components/MetaCognition';
 
 const Header = () => (
     <header className="relative bg-black text-white py-20 text-center">
@@ -19,6 +17,14 @@ const Header = () => (
             <p className="text-2xl max-w-3xl mx-auto">
                 "30일 간의 온라인 개발 강의 제작 판매로 수익화 실현"
             </p>
+            <a
+                href="https://forms.gle/VoZrPH2w4mU445Hy9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-white text-indigo-600 font-bold py-2 px-4 rounded-full text-lg hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl mt-4"
+            >
+                파이프 코칭 캠프 신청하기
+            </a>
         </div>
     </header>
 );
@@ -143,7 +149,7 @@ const App = () => {
         {
             title: "2주차: 영상 촬영",
             description: [
-                "최적의 환경에서 강의 영상 촬영",
+                "최적의 환경에서 강의 ��상 촬영",
                 "IT 강의 특성에 맞는 화면 녹화 기법 학습",
                 "효과적인 강의 전달을 위한 발표 스킬 향상"
             ]
@@ -164,29 +170,6 @@ const App = () => {
                 "질문 & 답변 시스템 채널 운영 방법 학습",
                 "셀프 마케팅 및 강의 활성화 방안 연구"
             ]
-        },
-    ];
-
-    const challengeCompletionBenefits = [
-        {
-            title: "강의 제작 스킬",
-            description: "전문적인 온라인 강의 제작 능력 획득",
-            icon: GraduationCap
-        },
-        {
-            title: "메타 인지 능력",
-            description: "자기 주도적 학습과 문제 해결 능력 향상",
-            icon: Lightbulb
-        },
-        {
-            title: "포트폴리오",
-            description: "실제 제작한 강의로 포트폴리오 구축",
-            icon: Briefcase
-        },
-        {
-            title: "네트워킹",
-            description: "같은 목표를 가진 동료들과의 네트워크 형성",
-            icon: User
         },
     ];
 
@@ -232,34 +215,38 @@ const App = () => {
                     파이프 코칭 캠프는 기존의 개발자들이 단순히 코딩에만 몰입하거나,
                     개발적인 부분에 사로잡혀서 자신의 잠재력을 찾을 여유가 없는 분들을 위해 준비한 챌린지 프로그램입니다.
                 </p>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-gray-700 mb-4">
                     내가 어떠한 지식에 대해서 이해했다라고 답할 수 있으려면, 우선적으로 내가 타인에게 그 지식을 설명할 수 있어야 합니다.
                     하지만, 누군가에게 인정받으려고 발버둥 치기 바쁜 현대사회에서 이번 프로그램을 통해서 개발자라는 직업은 단순히 출발점이었고,
                     그 너머엔 자생할 수 있는 무한한 가능성들이 준비되어있다는 것을 알려드리고 싶습니다.
                 </p>
-            </Section>
-
-            <MetaCognition />
-
-            <Section title="사전 준비 밋업" emoji="🔽">
-                <HorizontalFlowChart steps={programSteps} />
-            </Section>
-
-            <Section title="코칭 캠프 커리큘럼" emoji="📚" bgColor="bg-gray-50">
-                <Timeline steps={curriculumSteps} />
-            </Section>
-
-            <Team />
-
-            <Section title="챌린지 완성 혜택" emoji="🏆" bgColor="bg-gray-50">
+                <p className="text-lg text-gray-700 mb-4">
+                    활동 혜택으로는 전문적인 온라인 강의 제작 능력 획득, 자기 주도적 학습과 문제 해결 능력 향상, 실제 제작한 강의로 포트폴리오 구축,
+                    같은 목표를 가진 동료들과 네트워크 형성 등이 있습니다.
+                </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {challengeCompletionBenefits.map((benefit, index) => (
-                        <BenefitCard key={index} {...benefit} />
-                    ))}
+                    <div className="bg-white p-6 rounded-lg shadow-md">
+                        <h3 className="text-xl font-bold mb-2">CEO 김상훈</h3>
+                        <p className="text-gray-700">피칭, 강의 정보 설계 피드백 역할</p>
+                        <p className="text-sm text-gray-600">사업 경험과 다양한 대외활동 위믹스, 컨택트, 청년엔진 등</p>
+                    </div>
+                    <div className="bg-white p-6 rounded-lg shadow-md">
+                        <h3 className="text-xl font-bold mb-2">CTO 이홍철</h3>
+                        <p className="text-gray-700">강의 촬영 & 편집, 커리큘럼 설계 피드백 역할</p>
+                        <p className="text-sm text-gray-600">온라인 지식 공유자 다수 경험 (youtube, udemy, inflearn, goorm edu, class 101 등)</p>
+                    </div>
                 </div>
             </Section>
 
-            <Section title="챌린지 성공 혜택" emoji="🌟">
+            <Section title="기본 커리큘럼" emoji="🔽">
+                <HorizontalFlowChart steps={programSteps} />
+            </Section>
+
+            <Section title="상세 커리큘럼" emoji="📚" bgColor="bg-gray-50">
+                <Timeline steps={curriculumSteps} />
+            </Section>
+
+            <Section title="수료 혜택" emoji="🌟">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {challengeSuccessBenefits.map((benefit, index) => (
                         <BenefitCard key={index} {...benefit} />
@@ -270,8 +257,8 @@ const App = () => {
             <Section title="참가 정보" emoji="💰">
                 <div className="bg-white p-6 rounded-lg shadow-md mb-8">
                     <h3 className="text-2xl font-bold mb-2">참가비</h3>
-                    <p className="text-xl"><span className="line-through">24만원</span> → <span className="font-bold text-indigo-600 text-2xl">22만원</span> (얼리버드 할인가)</p>
-                    <p className="text-sm text-gray-600 mt-2">얼리버드 종료 이후 정상가 → 24만원</p>
+                    <p className="text-xl"><span className="line-through">55만원</span> → <span className="font-bold text-indigo-600 text-2xl">33만원</span> (얼리버드 할인가)</p>
+                    <p className="text-sm text-gray-600 mt-2">얼리버드 종료 이후 정상가 → 55만원</p>
                     <p className="text-sm text-gray-600 mt-2">신청서 작성 이후 선정되신 분에게 입금 요청을 진행합니다</p>
                 </div>
                 <div>
