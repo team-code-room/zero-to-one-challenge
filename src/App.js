@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {DollarSign, Megaphone, Lightbulb, Settings, GraduationCap, User, Award, Target, Zap, Briefcase, ArrowRight, ChevronDown, ChevronUp} from 'lucide-react';
+import {DollarSign, Megaphone, Settings, GraduationCap, User, Award, Zap, Briefcase, ArrowRight, ChevronDown, ChevronUp} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
 
