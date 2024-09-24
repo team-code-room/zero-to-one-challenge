@@ -1,5 +1,5 @@
-import React from 'react';
-import {DollarSign, Megaphone, Lightbulb, Settings, GraduationCap, User, Award, Target, Zap, Briefcase, ArrowRight} from 'lucide-react';
+import React, { useState } from 'react';
+import {DollarSign, Megaphone, Lightbulb, Settings, GraduationCap, User, Award, Target, Zap, Briefcase, ArrowRight, ChevronDown, ChevronUp} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
 
@@ -121,11 +121,32 @@ const HorizontalFlowChart = ({ steps }) => (
   </div>
 );
 
+const FAQItem = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div className="mb-6 border-b border-gray-200 pb-4">
+            <button
+                className="flex justify-between items-center w-full text-left"
+                onClick={() => setIsOpen(prevState => !prevState)}
+            >
+                <h4 className="text-lg font-semibold">{question}</h4>
+                {isOpen ? <ChevronUp className="w-6 h-6 text-indigo-600" /> : <ChevronDown className="w-6 h-6 text-indigo-600" />}
+            </button>
+            {isOpen && (
+                <p className="mt-4 text-gray-600 bg-gray-50 p-4 rounded-lg">
+                    {answer}
+                </p>
+            )}
+        </div>
+    );
+};
+
 const App = () => {
     const programSteps = [
         {
             title: "온보딩 인터뷰",
-            description: "신청서 내용 기반 온라인 인터뷰 (Zoom/Google Meet)"
+            description: "ZEP 메타버스 온라인 인터뷰"
         },
         {
             title: "킥오프 인터뷰",
@@ -139,7 +160,7 @@ const App = () => {
 
     const curriculumSteps = [
         {
-            title: "1주차: 강의 커리큘럼 목록 설계",
+            title: "Chapter 1. 맞춤형 커리큘럼 기획",
             description: [
                 "수강자를 배려한 매력적인 커리큘럼 구성",
                 "학습적 측면에서 효과적인 커리큘럼 설계",
@@ -147,7 +168,7 @@ const App = () => {
             ]
         },
         {
-            title: "2주차: 영상 촬영",
+            title: "Chapter 2. 강의 촬영(장소 제공)",
             description: [
                 "최적의 환경에서 강의 영상 촬영",
                 "IT 강의 특성에 맞는 화면 녹화 기법 학습",
@@ -155,7 +176,7 @@ const App = () => {
             ]
         },
         {
-            title: "3주차: 강의 영상 편집",
+            title: "Chapter 3. 강의 영상 편집",
             description: [
                 "효과적인 편집 툴 활용 및 기술 습득",
                 "최적의 단축키 세팅으로 편집 효율 극대화",
@@ -163,10 +184,10 @@ const App = () => {
             ]
         },
         {
-            title: "4주차: 강의 제작 완료 및 플랫폼 런칭",
+            title: "Chapter 4. 전체적인 퀄리티 체크 및 강의 플랫폼 업로드",
             description: [
                 "최종 점검 및 온라인 플랫폼 업로드",
-                "강의 설명, 대상 타겟층, 기대효과 등 상세 정보 작성",
+                "강의 설명, 수강 대상 타겟층, 기대효과 등 상세 정보 작성",
                 "질문 & 답변 시스템 채널 운영 방법 학습",
                 "셀프 마케팅 및 강의 활성화 방안 연구"
             ]
@@ -185,11 +206,6 @@ const App = () => {
             icon: Megaphone
         },
         {
-            title: "컨설팅 제공",
-            description: "실전 프로젝트 웹 / 앱 서비스 출시 컨설팅 제공",
-            icon: Target
-        },
-        {
             title: "지속적 관리",
             description: "출시 이후 지속적인 강의 유지보수 & 수익창출 관리",
             icon: Settings
@@ -204,26 +220,50 @@ const App = () => {
             description: "개인 브랜드 구축 및 전문가로서의 입지 확립 지원",
             icon: Zap
         },
+        {
+            title: "재참가 할인",
+            description: "파이프코칭클럽 재참가시 파격적인 할인 혜택",
+            icon: Briefcase
+        },
+        {
+            title: "추가 수익 기회",
+            description: "멘토링 & 기업 강사로 활동할 수 있는 추가 수익 기회 제공",
+            icon: User
+        },
+        {
+            title: "멤버십 혜택",
+            description: "개발자 프라이빗 멤버십 가입 혜택",
+            icon: GraduationCap
+        },
+    ];
+
+    const faqItems = [
+        {
+            question: "선발 절차가 있나요?",
+            answer: "강사 시작을 희망하는 열정 있는 누구나 참여 가능합니다. 좋은 개발자 양성에 기여하여 경험할 수 없었던 성취감과 보람을 느껴보세요."
+        },
+        {
+            question: "어떤 주제로 강의를 만들 수 있나요?",
+            answer: "IT와 관련된 모든 주제가 가능합니다. 프로그래밍 언어, 웹 개발, 모바일 앱 개발, 데이터 과학, 인공지능 등 다양한 분야에서 여러분의 전문성을 살릴 수 있습니다."
+        },
+        {
+            question: "강의 제작 경험이 없어도 참여할 수 있나요?",
+            answer: "물론입니다! 파이프 코칭 캠프는 강의 제작 경험이 없는 분들을 위한 프로그램입니다. 전문가의 지도 아래 처음부터 끝까지 모든 과정을 배우고 실습할 수 있습니다."
+        }
     ];
 
     return (
         <div className="font-sans">
             <Header />
 
-            <Section title="파이프 코칭 캠프란?" emoji="🚀" bgColor="bg-gray-50">
-                <p className="text-lg text-gray-700 mb-4">
-                    파이프 코칭 캠프는 기존의 개발자들이 단순히 코딩에만 몰입하거나,
-                    개발적인 부분에 사로잡혀서 자신의 잠재력을 찾을 여유가 없는 분들을 위해 준비한 챌린지 프로그램입니다.
-                </p>
-                <p className="text-lg text-gray-700 mb-4">
-                    내가 어떠한 지식에 대해서 이해했다라고 답할 수 있으려면, 우선적으로 내가 타인에게 그 지식을 설명할 수 있어야 합니다.
-                    하지만, 누군가에게 인정받으려고 발버둥 치기 바쁜 현대사회에서 이번 프로그램을 통해서 개발자라는 직업은 단순히 출발점이었고,
-                    그 너머엔 자생할 수 있는 무한한 가능성들이 준비되어있다는 것을 알려드리고 싶습니다.
-                </p>
-                <p className="text-lg text-gray-700 mb-4">
-                    활동 혜택으로는 전문적인 온라인 강의 제작 능력 획득, 자기 주도적 학습과 문제 해결 능력 향상, 실제 제작한 강의로 포트폴리오 구축,
-                    같은 목표를 가진 동료들과 네트워크 형성 등이 있습니다.
-                </p>
+            <Section title="파이프 코칭 캠프 소개" emoji="🚀" bgColor="bg-gray-50">
+                <div className="mb-12">
+                    <h2 className="text-2xl font-semibold mb-4">"당신만의 강의, 지금 시작하세요 !"</h2>
+                    <p className="mb-2">누구나 가지고 있는 특별한 지식과 경험이 있습니다. 우리와 함께하면 그 지식을 나누는 강사가 될 수 있습니다. 두려워하지 마세요, 여러분의 잠재력을 믿습니다.</p>
+                    <p className="mb-2">개인 맞춤형 커리큘럼으로 여러분에게 가장 적합한 강의 계획을 세우고, 전문가의 도움으로 강의 제작 전 과정을 지원합니다.</p>
+                    <p className="mb-2">이 프로그램을 통해 강의 기획부터 제작, 다양한 온라인 플랫폼 출시, 그리고 수익화까지 모든 과정을 경험하며 성장할 수 있습니다.</p>
+                    <p className="mb-2">여러분의 지식이 가치 있는 콘텐츠로 변화하는 여정을 함께 시작해보세요.</p>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="bg-white p-6 rounded-lg shadow-md">
                         <h3 className="text-xl font-bold mb-2">CEO 김상훈</h3>
@@ -233,12 +273,12 @@ const App = () => {
                     <div className="bg-white p-6 rounded-lg shadow-md">
                         <h3 className="text-xl font-bold mb-2">CTO 이홍철</h3>
                         <p className="text-gray-700">강의 촬영 & 편집, 커리큘럼 설계 피드백 역할</p>
-                        <p className="text-sm text-gray-600">온라인 지식 공유자 다수 경험 (youtube, udemy, inflearn, goorm edu, class 101 등)</p>
+                        <p className="text-sm text-gray-600">온라인 지식 공유자 다수 경험 (youtube, udemy, inflearn, goorm edu)</p>
                     </div>
                 </div>
             </Section>
 
-            <Section title="기본 커리큘럼" emoji="🔽">
+            <Section title="기본 커리큘럼" emoji="🚀">
                 <HorizontalFlowChart steps={programSteps} />
             </Section>
 
@@ -246,7 +286,7 @@ const App = () => {
                 <Timeline steps={curriculumSteps} />
             </Section>
 
-            <Section title="수료 혜택" emoji="🌟">
+            <Section title="캠프 수료 혜택" emoji="🌟">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {challengeSuccessBenefits.map((benefit, index) => (
                         <BenefitCard key={index} {...benefit} />
@@ -261,15 +301,23 @@ const App = () => {
                     <p className="text-sm text-gray-600 mt-2">얼리버드 종료 이후 정상가 → 55만원</p>
                     <p className="text-sm text-gray-600 mt-2">신청서 작성 이후 선정되신 분에게 입금 요청을 진행합니다</p>
                 </div>
-                <div>
-                    <h3 className="text-xl font-semibold mb-4">환불 규정</h3>
-                    <ul className="list-disc pl-5 space-y-2">
-                        <li>파이프 코칭캠프 시작 전(킥오프 인터뷰 전) > 100% 환불</li>
-                        <li>파이프 코칭캠프 1/3 경과 전(시작 후 10일 전까지) : 2/3 금액 환불 > 22만원 환불</li>
-                        <li>파이프 코칭캠프 1/2 경과 전(시작 후 14일 전까지) : 1/2 금액 환불 > 16.5만원 환불</li>
-                        <li>파이프 코칭캠프 1/2 경과 후(2주 코스 후) > 환불 불가</li>
-                    </ul>
+            </Section>
+
+            <Section title="공지사항 및 자주 묻는 질문" emoji="❓" bgColor="bg-gray-50">
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                    {faqItems.map((item, index) => (
+                        <FAQItem key={index} question={item.question} answer={item.answer} />
+                    ))}
                 </div>
+            </Section>
+
+            <Section title="환불 규정" emoji="💸">
+                <ul className="list-disc pl-5 space-y-2">
+                    <li>파이프 코칭캠프 시작 전(킥오프 인터뷰 전) &gt; 100% 환불</li>
+                    <li>파이프 코칭캠프 1/3 경과 전(시작 후 10일 전까지) : 2/3 금액 환불 &gt; 22만원 환불</li>
+                    <li>파이프 코칭캠프 1/2 경과 전(시작 후 14일 전까지) : 1/2 금액 환불 &gt; 16.5만원 환불</li>
+                    <li>파이프 코칭캠프 1/2 경과 후(2주 코스 후) &gt; 환불 불가</li>
+                </ul>
             </Section>
 
             <JoinNowSection />
