@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import {DollarSign, Megaphone, Settings, GraduationCap, User, Award, Zap, Briefcase, ArrowRight, ChevronDown, ChevronUp} from 'lucide-react';
+import {DollarSign, Megaphone, Settings, GraduationCap, User, Award, Zap, Briefcase, ArrowRight, ChevronDown, ChevronUp, Sparkles} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
+import './fonts.css'; // 폰트를 import하는 CSS 파일
 
 const Header = () => (
     <header className="relative bg-black text-white py-20 text-center">
@@ -13,15 +14,15 @@ const Header = () => (
             }}
         />
         <div className="relative z-10">
-            <h1 className="text-5xl font-bold mb-4">파이프 코칭 캠프</h1>
-            <p className="text-2xl max-w-3xl mx-auto">
+            <h1 className="text-5xl font-bold mb-4 font-heading">파이프 코칭 캠프</h1>
+            <p className="text-2xl max-w-3xl mx-auto font-subheading">
                 "30일 간의 온라인 개발 강의 제작 판매로 수익화 실현"
             </p>
             <a
                 href="https://forms.gle/VoZrPH2w4mU445Hy9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-indigo-600 font-bold py-2 px-4 rounded-full text-lg hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl mt-4"
+                className="inline-block bg-white text-indigo-600 font-bold py-2 px-4 rounded-full text-lg hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl mt-4 font-body"
             >
                 파이프 코칭 캠프 신청하기
             </a>
@@ -53,12 +54,13 @@ const JoinNowSection = () => (
     </section>
 );
 
-const Section = ({ title, children, emoji, bgColor = "bg-white" }) => (
-    <section className={`py-16 px-4 ${bgColor}`}>
+const Section = ({ title, children, bgColor = "bg-white" }) => (
+    <section className={`py-12 px-4 ${bgColor}`}>
         <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 flex items-center">
-                {emoji && <span className="mr-2 text-3xl">{emoji}</span>}
-                {title}
+            <h2 className="text-3xl font-bold mb-8 text-center font-heading">
+                <span className="bg-gradient-to-r from-indigo-500 to-purple-600 text-transparent bg-clip-text">
+                    {title}
+                </span>
             </h2>
             {children}
         </div>
@@ -189,7 +191,7 @@ const App = () => {
                 "최종 점검 및 온라인 플랫폼 업로드",
                 "강의 설명, 수강 대상 타겟층, 기대효과 등 상세 정보 작성",
                 "질문 & 답변 시스템 채널 운영 방법 학습",
-                "셀프 마케팅 및 강의 활성화 방안 연구"
+                "셀프 마케팅 및 강의 활성화 안 연구"
             ]
         },
     ];
@@ -227,7 +229,7 @@ const App = () => {
         },
         {
             title: "추가 수익 기회",
-            description: "멘토링 & 기업 강사로 활동할 수 있는 추가 수익 기회 제공",
+            description: "멘토링 & 기업 강사로 활동할 수 있 추가 수익 기회 제공",
             icon: User
         },
         {
@@ -235,12 +237,17 @@ const App = () => {
             description: "개발자 프라이빗 멤버십 가입 혜택",
             icon: GraduationCap
         },
+        {
+            title: "AI 서비스 할인",
+            description: "AI 서비스 메이킹 솔루션 method. 이용 할인 혜택",
+            icon: Zap // 또는 다른 적절한 아이콘을 선택하세요
+        },
     ];
 
     const faqItems = [
         {
             question: "선발 절차가 있나요?",
-            answer: "강사 시작을 희망하는 열정 있는 누구나 참여 가능합니다. 좋은 개발자 양성에 기여하여 경험할 수 없었던 성취감과 보람을 느껴보세요."
+            answer: "강사 시작을 희망하는 누구나 참여 가능합니다. 좋은 개발자 양성에 기여하여 경험할 수 없었던 성취감과 보람을 느껴보세요."
         },
         {
             question: "어떤 주제로 강의를 만들 수 있나요?",
@@ -253,40 +260,63 @@ const App = () => {
     ];
 
     return (
-        <div className="font-sans">
+        <div className="font-sans font-body">
             <Header />
 
-            <Section title="파이프 코칭 캠프 소개" emoji="🚀" bgColor="bg-gray-50">
-                <div className="mb-12">
-                    <h2 className="text-2xl font-semibold mb-4">"당신만의 강의, 지금 시작하세요 !"</h2>
-                    <p className="mb-2">누구나 가지고 있는 특별한 지식과 경험이 있습니다. 우리와 함께하면 그 지식을 나누는 강사가 될 수 있습니다. 두려워하지 마세요, 여러분의 잠재력을 믿습니다.</p>
-                    <p className="mb-2">개인 맞춤형 커리큘럼으로 여러분에게 가장 적합한 강의 계획을 세우고, 전문가의 도움으로 강의 제작 전 과정을 지원합니다.</p>
-                    <p className="mb-2">이 프로그램을 통해 강의 기획부터 제작, 다양한 온라인 플랫폼 출시, 그리고 수익화까지 모든 과정을 경험하며 성장할 수 있습니다.</p>
-                    <p className="mb-2">여러분의 지식이 가치 있는 콘텐츠로 변화하는 여정을 함께 시작해보세요.</p>
+            <Section bgColor="bg-gray-50" className="pt-8">
+                <div className="mb-8">
+                    <h2 className="text-4xl font-bold mb-6 text-center font-heading">
+                        <span className="bg-indigo-600 text-white px-6 py-3 rounded-lg inline-block transform -rotate-2">
+                            맞춤형 강의 제작 프로그램
+                        </span>
+                    </h2>
+                    <div className="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 className="text-2xl font-semibold mb-6 text-center text-indigo-600 font-subheading">"당신만의 강의, 지금 시작하세요!"</h3>
+                        <div className="space-y-4">
+                            <p>누구나 가지고 있는 특별한 지식과 경험이 있습니다. 우리와 함께하면 그 지식을 나누는 강사가 될 수 있습니다. 두려워하지 마세요, 여러분의 잠재력을 믿습니다.</p>
+                            <p>개인 맞춤형 커리큘럼으로 여러분에게 가장 적합한 강의 계획을 세우고, 전문가의 도움으로 강의 제작 전 과정을 지원합니다.</p>
+                            <p>이 프로그램을 통해 강의 기획부터 제작, 다양한 온라인 플랫폼 출시, 그리고 수익화까지 모든 과정을 경험하며 성장할 수 있습니다.</p>
+                            <p>여러분의 지식이 가치 있는 콘텐츠로 변화하는 여정을 함께 시작해보세요.</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                        <h3 className="text-xl font-bold mb-2">CEO 김상훈</h3>
-                        <p className="text-gray-700">피칭, 강의 정보 설계 피드백 역할</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <h3 className="text-xl font-bold mb-4 text-indigo-600">CEO 김상훈</h3>
+                        <p className="text-gray-700 mb-2">피칭, 강의 정보 설계 피드백 역할</p>
                         <p className="text-sm text-gray-600">사업 경험과 다양한 대외활동 위믹스, 컨택트, 청년엔진 등</p>
                     </div>
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                        <h3 className="text-xl font-bold mb-2">CTO 이홍철</h3>
-                        <p className="text-gray-700">강의 촬영 & 편집, 커리큘럼 설계 피드백 역할</p>
+                    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <h3 className="text-xl font-bold mb-4 text-indigo-600">CTO 이홍철</h3>
+                        <p className="text-gray-700 mb-2">강의 촬영 & 편집, 커리큘럼 설계 피드백 역할</p>
                         <p className="text-sm text-gray-600">온라인 지식 공유자 다수 경험 (youtube, udemy, inflearn, goorm edu)</p>
                     </div>
                 </div>
             </Section>
 
-            <Section title="기본 커리큘럼" emoji="🚀">
-                <HorizontalFlowChart steps={programSteps} />
+            <Section title="기본 커리큘럼">
+                <div className="bg-gradient-to-r from-indigo-100 to-purple-100 p-8 rounded-lg shadow-lg">
+                    <HorizontalFlowChart steps={programSteps} />
+                </div>
             </Section>
 
-            <Section title="상세 커리큘럼" emoji="📚" bgColor="bg-gray-50">
-                <Timeline steps={curriculumSteps} />
+            <Section title="상세 커리큘럼" bgColor="bg-gray-50">
+                <div className="bg-white p-8 rounded-lg shadow-lg">
+                    <div className="mb-8">
+                        <h3 className="text-2xl font-bold mb-6 text-indigo-600 font-subheading">프로그램 운영 안내</h3>
+                        <ul className="list-disc pl-5 space-y-2 text-gray-700 font-body">
+                            <li>기본 주 1회 2시간 정기적인 미팅</li>
+                            <li>시작 날짜, 시간은 온보딩 인터뷰 후 결정됩니다. 매주 월요일 시작 4주 코스</li>
+                            <li>시간, 공간 상관없이 참가자 밀착코칭!</li>
+                            <li>캠프 중 질문사항 언제든 가능! 확인 후 최대한 빠르게 답변</li>
+                        </ul>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-6 text-indigo-600 font-subheading">커리큘럼 상세 내용</h3>
+                    <Timeline steps={curriculumSteps} />
+                </div>
             </Section>
 
-            <Section title="캠프 수료 혜택" emoji="🌟">
+            <Section title="캠프 수료 혜택">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {challengeSuccessBenefits.map((benefit, index) => (
                         <BenefitCard key={index} {...benefit} />
@@ -294,35 +324,56 @@ const App = () => {
                 </div>
             </Section>
 
-            <Section title="참가 정보" emoji="💰">
-                <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-                    <h3 className="text-2xl font-bold mb-2">참가비</h3>
-                    <p className="text-xl"><span className="line-through">55만원</span> → <span className="font-bold text-indigo-600 text-2xl">33만원</span> (얼리버드 할인가)</p>
-                    <p className="text-sm text-gray-600 mt-2">얼리버드 종료 이후 정상가 → 55만원</p>
-                    <p className="text-sm text-gray-600 mt-2">신청서 작성 이후 선정되신 분에게 입금 요청을 진행합니다</p>
+            <Section title="참가 정보" bgColor="bg-gray-50">
+                <div className="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 className="text-2xl font-bold mb-6 text-indigo-600">참가 자격 및 강의 안내</h3>
+                    <ul className="list-disc pl-5 mb-8 space-y-2 text-gray-700">
+                        <li>강사 시작을 희망하는 누구나 참여 가능합니다.</li>
+                        <li>정기적인 미팅 시간은 참가자와 원하는 시간으로 최대한 맞춰 진행합니다.</li>
+                        <li>좋은 개발자 양성에 기여하여 지금껏 경험할 수 없었던 성취감과 보람을 느껴보세요.</li>
+                        <li>커리큘럼은 '학습'이 아닌 '코칭'을 중심으로 구성하였으며, 강사를 위한 역량을 발전시켜갑니다.</li>
+                    </ul>
+                    
+                    <h3 className="text-2xl font-bold mb-4 text-indigo-600">참가비</h3>
+                    <p className="text-xl mb-2"><span className="line-through">55만원</span> → <span className="font-bold text-indigo-600 text-3xl">33만원</span></p>
+                    <p className="text-lg text-indigo-600 font-semibold mb-4">얼리버드 할인가</p>
+                    <p className="text-gray-600">얼리버드 종료 이후 정상가 → 55만원</p>
+                    <p className="text-gray-600 mt-2">신청서 작성 이후 선정되신 분에게 입금 요청을 진행합니다</p>
                 </div>
             </Section>
 
-            <Section title="공지사항 및 자주 묻는 질문" emoji="❓" bgColor="bg-gray-50">
-                <div className="bg-white p-6 rounded-lg shadow-md">
+            <Section title="자주 묻는 질문">
+                <div className="bg-white p-8 rounded-lg shadow-lg">
                     {faqItems.map((item, index) => (
                         <FAQItem key={index} question={item.question} answer={item.answer} />
                     ))}
                 </div>
             </Section>
 
-            <Section title="환불 규정" emoji="💸">
-                <ul className="list-disc pl-5 space-y-2">
-                    <li>파이프 코칭캠프 시작 전(킥오프 인터뷰 전) &gt; 100% 환불</li>
-                    <li>파이프 코칭캠프 1/3 경과 전(시작 후 10일 전까지) : 2/3 금액 환불 &gt; 22만원 환불</li>
-                    <li>파이프 코칭캠프 1/2 경과 전(시작 후 14일 전까지) : 1/2 금액 환불 &gt; 16.5만원 환불</li>
-                    <li>파이프 코칭캠프 1/2 경과 후(2주 코스 후) &gt; 환불 불가</li>
-                </ul>
+            <Section title="환불 규정" bgColor="bg-gray-50">
+                <div className="bg-white p-8 rounded-lg shadow-lg">
+                    <p className="text-gray-700 mb-6 text-center italic">
+                        환불 신청시 학원법 규정에 근거하여 강의 참여 횟수에 따라 환불금이 정해집니다.
+                    </p>
+                    <ul className="list-none space-y-4">
+                        {[
+                            { period: "파이프 코칭 캠프 시작 전", refund: "100% 환불 (33만원 환불)" },
+                            { period: "파이프 코칭 캠프 1/3 경과 전 (시작 후 10일 전까지)", refund: "2/3 금액 환불 (22만원 환불)" },
+                            { period: "파이프 코칭 캠프 1/2 경과 전 (시작 후 14일 전까지)", refund: "1/2 금액 환불 (16.5만원 환불)" },
+                            { period: "파이프 코칭 캠프 1/2 경과 후 (2주 코스 후)", refund: "환불 불가" }
+                        ].map((item, index) => (
+                            <li key={index} className="flex items-center">
+                                <Sparkles className="w-6 h-6 text-indigo-500 mr-3" />
+                                <span><strong className="text-indigo-600">{item.period}:</strong> {item.refund}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </Section>
 
             <JoinNowSection />
 
-            <footer className="bg-gray-800 text-white py-8 text-center">
+            <footer className="bg-gray-800 text-white py-8 text-center font-body">
                 <p>&copy; 2024 파이프 코칭 캠프. All rights reserved.</p>
             </footer>
         </div>
