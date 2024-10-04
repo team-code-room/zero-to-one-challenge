@@ -322,9 +322,8 @@ const App = () => {
 
             <Section title="프로그램 개요" bgColor="bg-gray-100" icon={Lightbulb}>
                 <div className="bg-white p-8 rounded-lg shadow-lg">
-                    <h3 className="text-2xl font-semibold mb-6 text-indigo-600 font-subheading text-left">"당신만의 강의, 지금 시작하세요!"</h3>
+                    <h3 className="text-2xl font-semibold mb-6 text-indigo-600 font-subheading text-left">여러분의 개발 지식을 수익으로 연결할 수 있는 기회를 제공합니다!</h3>
                     <div className="space-y-4 text-lg text-left">
-                        <p>여러분의 개발 지식을 수익으로 연결할 수 있는 기회를 제공합니다!</p>
                         <p>이 프로그램은 단순한 강의 제작을 넘어, 여러분이 가진 독창적인 경험과 전문성을 활용하여 시장에서 경쟁력 있는 강의를 만드는 과정을 지원합니다.</p>
                         <p>혼자서 강의를 만드는 건 쉽게 도전할 수 없는 어려운 과정입니다. 하지만 저희와 함께라면 여러분의 아이디어가 실제 수익으로 이어지는 놀라운 과정을 경험할 수 있습니다.</p>
                         <p>메타인지적 접근을 통해 자신의 학습과 강의 제작을 체계적으로 관리하며 자신이 성장하는 모습을 보게 되는 경험을 할 수 있습니다.</p>
