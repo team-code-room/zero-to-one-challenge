@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {DollarSign, Megaphone, Settings, GraduationCap, User, Award, Zap, Briefcase, ArrowRight, ChevronDown, ChevronUp, Sparkles, Users, BookOpen, Rocket, UserCheck, FileText, Upload, LifeBuoy, Code, Mail, MessageCircle, Target, Gift, CreditCard, RefreshCcw, Lightbulb} from 'lucide-react';
+import React from 'react';
+import {DollarSign, GraduationCap, Award, Zap, Briefcase, Sparkles, Users, BookOpen, Rocket, UserCheck, FileText, Upload, LifeBuoy, Code, Mail, MessageCircle, Target, Gift, CreditCard, RefreshCcw, Lightbulb} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
 import './fonts.css'; // 폰트를 import하는 CSS 파일
@@ -348,7 +348,7 @@ const App = () => {
                     <ul className="list-disc pl-5 space-y-2">
                         <li>
                             <strong>자신의 목소리를 내는 강사로 성장</strong>
-                            <p>여러분의 전문성을 기반으로 한 강의를 통해, 다른 사람들에게 가치를 전달하고 영향을 미치는 강사가 되어보세요.</p>
+                            <p>여러분의 전문성을 기반으로 한 강의�� 통해, 다른 사람들에게 가치를 전달하고 영향을 미치는 강사가 되어보세요.</p>
                         </li>
                         <li>
                             <strong>실질적인 수익 창출</strong>
