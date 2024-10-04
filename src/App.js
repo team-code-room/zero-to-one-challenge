@@ -1,5 +1,5 @@
 import React from 'react';
-import {DollarSign, Award, Zap, Briefcase, Sparkles, Users, BookOpen, Rocket, UserCheck, FileText, Upload, LifeBuoy, Code, Mail, MessageCircle, Target, Gift, CreditCard, RefreshCcw, Lightbulb} from 'lucide-react';
+import {DollarSign, Award, Zap, Briefcase, Sparkles, Users, BookOpen, Rocket, UserCheck, FileText, Upload, LifeBuoy, Code, Mail, MessageCircle, Target, Gift, CreditCard, RefreshCcw, Lightbulb, HelpCircle} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
 import './fonts.css'; // 폰트를 import하는 CSS 파일
@@ -75,14 +75,14 @@ const Section = ({ title, children, bgColor = "bg-white", icon: Icon }) => (
 
 const BenefitCard = ({ icon: Icon, title, description }) => (
     <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-1 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full">
-        <div className="bg-white p-6 rounded-lg h-full flex flex-col">
-            <div className="flex items-center mb-4">
-                <div className="bg-indigo-100 p-3 rounded-full mr-4 flex-shrink-0">
-                    <Icon className="w-8 h-8 text-indigo-600" />
+        <div className="bg-white p-4 rounded-lg h-full flex flex-col">
+            <div className="flex items-center mb-3">
+                <div className="bg-indigo-100 p-2 rounded-full mr-3 flex-shrink-0">
+                    <Icon className="w-6 h-6 text-indigo-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">{title}</h3>
+                <h3 className="text-lg font-bold text-gray-800 leading-tight">{title}</h3>
             </div>
-            <p className="text-gray-600 flex-grow">{description}</p>
+            <p className="text-sm text-gray-600 flex-grow">{description}</p>
         </div>
     </div>
 );
@@ -152,7 +152,7 @@ const CompletionBenefitCard = ({ icon: Icon, title, description }) => (
 );
 
 const ContactSection = () => (
-    <Section title="문의" bgColor="bg-white">
+    <Section title="문의" bgColor="bg-white" icon={HelpCircle}>
         <div className="bg-white p-8 rounded-lg shadow-lg">
             <p className="text-xl mb-6 text-center">궁금한 점이 있다면 언제든지 문의해 주세요!</p>
             <div className="flex flex-col items-center space-y-4">
@@ -251,7 +251,7 @@ const App = () => {
         },
         {
             week: "2",
-            title: "강 콘텐츠 개발",
+            title: "강의 콘텐츠 개발",
             items: [
                 { title: "커리큘럼 구성", description: "효과적인 강의 흐름과 내용을 체계적으로 직접 설계합니다." },
                 { title: "자료 제작", description: "강의에 필요한 슬라이드, 동영상, 퀴즈 등 교육 자료를 직접 제작합니다." }
@@ -411,7 +411,7 @@ const App = () => {
             </Section>
 
             <Section title="참여 혜택" bgColor="bg-white" icon={Gift}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {participationBenefits.map((benefit, index) => (
                         <motion.div
                             key={index}
