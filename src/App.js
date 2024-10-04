@@ -23,7 +23,7 @@ const Header = () => (
                 "당신의 지식을 수익으로! 강사로서의 첫걸음을 내딛으세요"
             </p>
             <a
-                href="https://forms.gle/VoZrPH2w4mU445Hy9"
+                href="https://docs.google.com/forms/d/1bvOguf3pLp-C8lu554utjxJB4VYsytHq2m__gya27-E/edit?pli=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-indigo-600 font-bold py-2 px-4 rounded-full text-lg hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl mt-4 font-body"
@@ -46,9 +46,9 @@ const JoinNowSection = () => (
         <div className="relative z-10 max-w-4xl mx-auto px-4">
             <h2 className="text-4xl font-bold mb-8">지금 바로 신청하세요!</h2>
             <p className="text-xl mb-8">여러분의 지식을 가치로 전환하는 흥미진진한 여정을 파이프코칭캠프에서 시작하세요!</p>
-            <p className="text-lg mb-8">아래 버튼을 클릭하여 신청 폼을 작성해 주세요.</p>
+            <p className="text-lg mb-8">아래 버튼을 클릭하여 신청서를 작성해 주세요.</p>
             <a
-                href="https://forms.gle/VoZrPH2w4mU445Hy9"
+                href="https://docs.google.com/forms/d/1bvOguf3pLp-C8lu554utjxJB4VYsytHq2m__gya27-E/edit?pli=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-indigo-600 font-bold py-4 px-8 rounded-full text-xl hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl"
@@ -169,6 +169,17 @@ const ContactSection = () => (
     </Section>
 );
 
+const FAB = () => (
+  <a
+    href="https://pf.kakao.com/_sfuZn/chat"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-all duration-300 z-50 hover:shadow-2xl transform hover:-translate-y-1"
+  >
+    <MessageCircle className="w-6 h-6" />
+  </a>
+);
+
 const App = () => {
     const targetAudience = [
         {
@@ -254,7 +265,7 @@ const App = () => {
             title: "강의 콘텐츠 개발",
             items: [
                 { title: "커리큘럼 구성", description: "효과적인 강의 흐름과 내용을 체계적으로 직접 설계합니다." },
-                { title: "자료 제작", description: "강의에 필요한 슬라이드, 동영상, 퀴즈 등 교육 자료를 직접 제작합니다." }
+                { title: "자료 제작", description: "강의에 필요한 슬라이드, 동영상, 퀴즈 등 교육 료를 직접 제작합니다." }
             ]
         },
         {
@@ -277,8 +288,8 @@ const App = () => {
     ];
 
     const features = [
-        { name: '맞춤형 커리큘럼', description: '각 참가자의 니즈에 맞춘 개별화된 학습 경험', icon: UserCheck },
-        { name: '실전 중심 교육', description: '이론과 실습을 병행하여 실제 강의 제작 스킬 향상', icon: BookOpen },
+        { name: '맞춤형 커리큘럼', description: '각 참가자 니즈에 맞춘 개별화된 학습 경험', icon: UserCheck },
+        { name: '실전 중 교육', description: '이론과 실습을 병행하여 실제 강의 제작 스킬 향상', icon: BookOpen },
         { name: '전문가 멘토링', description: '경험 많은 강사진의 1:1 피드백 및 조언', icon: Users },
         { name: '수익화 전략', description: '강의 판매 및 마케팅 전략 수립 지원', icon: DollarSign },
     ];
@@ -297,12 +308,12 @@ const App = () => {
         {
             icon: DollarSign,
             title: "수익화 기회",
-            description: "제작한 강의를 통해 직접 수익을 창출할 수 있는 기회를 제공합니다. 다양한 수익화 모델(구독, 일회성 판매 등)에 대한 지속적인 지원을 받을 수 있습니다."
+            description: "제작한 강의를 통해 직접 수익을 창출할 수 있는 기회를 제공합니다. 다한 수익화 모델(구독, 일회성 판매 등)에 대한 지속적인 지원을 받을 수 있습니다."
         },
         {
             icon: Users,
             title: "멘토링 및 네트워킹",
-            description: "프로그램 종료 후에도 멘토와의 지속적인 관계 유지가 가능합니다. 참가자 간의 네트워킹 기회를 통해 협업 및 정보 공유가 가능합니다."
+            description: "프로그램 종료 후에도 멘토와의 지속적��� 관계 유지가 가능합니다. 참가자 간의 네트워킹 기회를 통해 협업 및 정보 공유가 가능합니다."
         },
         {
             icon: BookOpen,
@@ -505,6 +516,8 @@ const App = () => {
                     </ul>
                 </div>
             </Section>
+
+            <FAB />
 
             <footer className="bg-gray-800 text-white py-8 text-center font-body">
                 <p>&copy; 2024 파이프 코칭 캠프. All rights reserved.</p>
