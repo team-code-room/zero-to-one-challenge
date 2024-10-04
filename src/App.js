@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {DollarSign, Megaphone, Settings, GraduationCap, User, Award, Zap, Briefcase, ArrowRight, ChevronDown, ChevronUp, Sparkles, Users, BookOpen, Rocket, UserCheck, FileText, Upload, LifeBuoy, Code, Mail, MessageCircle, Target, Gift, CreditCard, HelpCircle, RefreshCcw, Lightbulb} from 'lucide-react';
+import {DollarSign, Megaphone, Settings, GraduationCap, User, Award, Zap, Briefcase, ArrowRight, ChevronDown, ChevronUp, Sparkles, Users, BookOpen, Rocket, UserCheck, FileText, Upload, LifeBuoy, Code, Mail, MessageCircle, Target, Gift, CreditCard, RefreshCcw, Lightbulb} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
 import './fonts.css'; // 폰트를 import하는 CSS 파일
@@ -73,31 +73,6 @@ const Section = ({ title, children, bgColor = "bg-white", icon: Icon }) => (
     </section>
 );
 
-const Timeline = ({ steps }) => (
-    <div className="relative">
-        {steps.map((step, index) => (
-            <div key={index} className="mb-12 flex">
-                <div className="flex flex-col items-center mr-6">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-500 text-white text-xl font-bold">
-                        {index + 1}
-                    </div>
-                    {index !== steps.length - 1 && <div className="h-full w-1 bg-indigo-300 my-2" />}
-                </div>
-                <div>
-                    <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
-                    <div className="text-gray-600 space-y-2">
-                        {Array.isArray(step.description) ? (
-                            step.description.map((item, idx) => <p key={idx}>{item}</p>)
-                        ) : (
-                            <p>{step.description}</p>
-                        )}
-                    </div>
-                </div>
-            </div>
-        ))}
-    </div>
-);
-
 const BenefitCard = ({ icon: Icon, title, description }) => (
     <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-1 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full">
         <div className="bg-white p-6 rounded-lg h-full flex flex-col">
@@ -111,48 +86,6 @@ const BenefitCard = ({ icon: Icon, title, description }) => (
         </div>
     </div>
 );
-
-const HorizontalFlowChart = ({ steps }) => (
-  <div className="flex flex-col md:flex-row justify-between items-center my-8 overflow-x-auto">
-    {steps.map((step, index) => (
-      <React.Fragment key={index}>
-        <div className="flex flex-col items-center mb-4 md:mb-0 mx-4">
-          <div className="w-20 h-20 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xl font-bold mb-2">
-            {index + 1}
-          </div>
-          <div className="text-center w-40">
-            <h3 className="font-semibold mb-2">{step.title}</h3>
-            <p className="text-sm text-gray-600">{step.description}</p>
-          </div>
-        </div>
-        {index < steps.length - 1 && (
-          <ArrowRight className="hidden md:block w-8 h-8 text-indigo-500 mx-2" />
-        )}
-      </React.Fragment>
-    ))}
-  </div>
-);
-
-const FAQItem = ({ question, answer }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <div className="mb-6 border-b border-gray-200 pb-4">
-            <button
-                className="flex justify-between items-center w-full text-left"
-                onClick={() => setIsOpen(prevState => !prevState)}
-            >
-                <h4 className="text-lg font-semibold">{question}</h4>
-                {isOpen ? <ChevronUp className="w-6 h-6 text-indigo-600" /> : <ChevronDown className="w-6 h-6 text-indigo-600" />}
-            </button>
-            {isOpen && (
-                <p className="mt-4 text-gray-600 bg-gray-50 p-4 rounded-lg">
-                    {answer}
-                </p>
-            )}
-        </div>
-    );
-};
 
 const TargetCard = ({ icon: Icon, title, items }) => (
     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-duration-300 h-full flex flex-col">
@@ -208,31 +141,6 @@ const FeatureSection = ({ title, features }) => (
     </div>
 );
 
-const StatsSection = ({ stats }) => (
-    <div className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="lg:text-center">
-                <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">통계</h2>
-                <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    우리의 성과를 숫자로 확인하세요
-                </p>
-            </div>
-            <div className="mt-10">
-                <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                    {stats.map((stat) => (
-                        <div key={stat.name} className="relative">
-                            <dt>
-                                <p className="text-2xl font-semibold text-gray-900">{stat.value}</p>
-                            </dt>
-                            <dd className="mt-2 text-base text-gray-500">{stat.name}</dd>
-                        </div>
-                    ))}
-                </dl>
-            </div>
-        </div>
-    </div>
-);
-
 const CompletionBenefitCard = ({ icon: Icon, title, description }) => (
     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-duration-300 h-full flex flex-col">
         <div className="flex items-center mb-4">
@@ -262,120 +170,6 @@ const ContactSection = () => (
 );
 
 const App = () => {
-    const programSteps = [
-        {
-            title: "온보딩 인터뷰",
-            description: "ZEP 메타버스 온라인 인터뷰"
-        },
-        {
-            title: "킥오프 인터뷰",
-            description: "오프라인 인터뷰 및 준비사항 안내 (서울 독산역 인근)"
-        },
-        {
-            title: "강의 계획서 작성",
-            description: "강의 내용 및 목표 설정, 기본 방향성 수립"
-        }
-    ];
-
-    const curriculumSteps = [
-        {
-            title: "Chapter 1. 맞춤형 커리큘럼 기획",
-            description: [
-                "수강자를 배려한 매력적인 커리큘럼 구성",
-                "학습적 측면에서 효과적인 커리큘럼 설계",
-                "꼭 필요한 내용으로 구성된 매력적인 강의 구조 만들기"
-            ]
-        },
-        {
-            title: "Chapter 2. 강의 촬영(장소 제공)",
-            description: [
-                "최적의 환경에서 강의 영상 촬영",
-                "IT 강의 특성에 맞는 화면 녹화 기법 학습",
-                "효과적인 강의 전달을 위한 발표 스킬 향상"
-            ]
-        },
-        {
-            title: "Chapter 3. 강의 영상 편집",
-            description: [
-                "효과적인 편집 툴 활용 및 기술 습득",
-                "최적의 단축키 세팅으로 편집 효율 극대화",
-                "수강생의 집중도를 높이는 편집 기법 학습"
-            ]
-        },
-        {
-            title: "Chapter 4. 전체적인 퀄리티 체크 및 강의 플랫폼 업로드",
-            description: [
-                "최종 점검 및 온라인 플랫폼 업로드",
-                "강의 설명, 수강 대상 타겟층, 기대효과 등 상세 정보 작성",
-                "질문 & 답변 시스템 채널 운영 방법 학습",
-                "셀프 마케팅 및 강의 활성화 방안 연구"
-            ]
-        },
-    ];
-
-    const challengeSuccessBenefits = [
-        {
-            title: "수익 공유",
-            description: "온라인 강의 플랫폼 강의 판매 수익 쉐어",
-            icon: DollarSign
-        },
-        {
-            title: "마케팅 지원",
-            description: "자사 인플루언서 & 온라인 채널 활용 마케팅",
-            icon: Megaphone
-        },
-        {
-            title: "지속적 관리",
-            description: "출시 이후 지속적인 강의 유지보수 & 수익창출 관리",
-            icon: Settings
-        },
-        {
-            title: "무료 강의",
-            description: "양질의 다양한 강의 수강권 무료 지급 (Flutter, Python, Unity, 자동화 등)",
-            icon: Award
-        },
-        {
-            title: "셀프 브랜딩 실현",
-            description: "개인 브랜드 구축 및 전문가로서의 입지 확립 지원",
-            icon: Zap
-        },
-        {
-            title: "재참가 할인",
-            description: "파이프코칭클럽 재참가시 파격적인 할인 혜택",
-            icon: Briefcase
-        },
-        {
-            title: "추가 수익 기회",
-            description: "멘토링 & 기업 강사로 활동할 수 있는 추가 수익 기회 제공",
-            icon: User
-        },
-        {
-            title: "멤버십 혜택",
-            description: "개발자 프라이빗 멤버십 가입 혜택",
-            icon: GraduationCap
-        },
-        {
-            title: "AI 서비스 할인",
-            description: "AI 서비스 메이킹 솔루션 method. 이용 할인 혜택",
-            icon: Zap
-        },
-    ];
-
-    const faqItems = [
-        {
-            question: "선발 절차가 있나요?",
-            answer: "강사 시작을 희망하는 누구나 참여 가능합니다. 좋은 개발자 양성에 기여하여 경험할 수 없었던 성취감과 보람을 느껴보세요."
-        },
-        {
-            question: "어떤 주제로 강의를 만들 수 있나요?",
-            answer: "IT와 관련된 모든 주제가 가능합니다. 프로그래밍 언어, 웹 개발, 모바일 앱 개발, 데이터 과학, 인공지능 등 다양한 분야에서 여러분의 전문성을 살릴 수 있습니다."
-        },
-        {
-            question: "강의 제작 경험이 없어도 참여할 수 있나요?",
-            answer: "물론입니다! 파이프 코칭 캠프는 강의 제작 경험이 없는 분들을 위한 프로그램입니다. 전문가의 지도 아래 처음부터 끝까지 모든 과정을 배우고 실습할 수 있습니다."
-        }
-    ];
-
     const targetAudience = [
         {
             icon: Users,
@@ -487,13 +281,6 @@ const App = () => {
         { name: '실전 중심 교육', description: '이론과 실습을 병행하여 실제 강의 제작 스킬 향상', icon: BookOpen },
         { name: '전문가 멘토링', description: '경험 많은 강사진의 1:1 피드백 및 조언', icon: Users },
         { name: '수익화 전략', description: '강의 판매 및 마케팅 전략 수립 지원', icon: DollarSign },
-    ];
-
-    const stats = [
-        { name: '수료생 수', value: '100+' },
-        { name: '평균 수익 증가율', value: '150%' },
-        { name: '만족도', value: '4.8/5' },
-        { name: '재참여율', value: '85%' },
     ];
 
     const completionBenefits = [
