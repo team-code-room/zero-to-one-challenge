@@ -62,13 +62,15 @@ const JoinNowSection = () => (
 const Section = ({ title, children, bgColor = "bg-white", icon: Icon }) => (
     <section className={`py-12 px-4 ${bgColor}`}>
         <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center font-heading flex items-center justify-center">
-                {Icon && <Icon className="w-8 h-8 mr-2 text-indigo-600" />}
+            <h2 className="text-5xl font-bold mb-12 text-left font-heading flex items-center">
+                {Icon && <Icon className="w-12 h-12 mr-4 text-indigo-600" />}
                 <span className="bg-gradient-to-r from-indigo-500 to-purple-600 text-transparent bg-clip-text">
                     {title}
                 </span>
             </h2>
-            {children}
+            <div className="text-left text-lg">
+                {children}
+            </div>
         </div>
     </section>
 );
@@ -118,36 +120,15 @@ const WeeklyContent = ({ week, title, items }) => (
     </div>
 );
 
-const FeatureSection = ({ title, features }) => (
-    <div className="py-12 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-extrabold text-center mb-8">{title}</h2>
-            <div className="mt-10">
-                <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                    {features.map((feature) => (
-                        <div key={feature.name} className="relative">
-                            <dt>
-                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-white text-indigo-500">
-                                    <feature.icon className="h-6 w-6" aria-hidden="true" />
-                                </div>
-                                <p className="ml-16 text-lg leading-6 font-medium">{feature.name}</p>
-                            </dt>
-                            <dd className="mt-2 ml-16 text-base">{feature.description}</dd>
-                        </div>
-                    ))}
-                </dl>
-            </div>
-        </div>
-    </div>
-);
-
 const CompletionBenefitCard = ({ icon: Icon, title, description }) => (
     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-duration-300 h-full flex flex-col">
         <div className="flex items-center mb-4">
             <Icon className="w-8 h-8 text-indigo-600 mr-3 flex-shrink-0" />
             <h3 className="text-xl font-bold text-indigo-600">{title}</h3>
         </div>
-        <p className="text-gray-700 flex-grow">{description}</p>
+        <div className="text-gray-700 flex-grow whitespace-pre-line">
+            {description}
+        </div>
     </div>
 );
 
@@ -187,7 +168,7 @@ const App = () => {
             title: "현직 개발자",
             items: [
                 "실무 경험이 있는 개발자로, 자신의 지식을 공유하고 싶으신 분",
-                "특정 기술이나 언어에 대한 전문성을 갖춘 분"
+                "특정 기술이나 언어에 대한 전문성을  분"
             ]
         },
         {
@@ -210,7 +191,7 @@ const App = () => {
             icon: Briefcase,
             title: "전문성을 더욱 강화하고 싶은 분",
             items: [
-                "기존의 전문성을 강화하고, 새로운 기술을 배우며 강의로 전환하고자 하는 분",
+                "기존의 전문성을 강화하, 새로운 기술을 우며 강의로 전환하고자 하는 분",
                 "최신 트렌드에 맞춘 교육 콘텐츠를 제작하고 싶은 분"
             ]
         },
@@ -237,7 +218,7 @@ const App = () => {
             icon: BookOpen,
             title: "실습 중심의 경험",
             items: [
-                "강의 제작의 모든 과정을 직접 실습해 볼 수 있는 기회 제공",
+                "의 제작의 모든 과정을 직접 실습해 볼 수 있는 기회 제공",
                 "모의 강의 진행 및 동료 피드백을 통해 실제 강의 역량 강화"
             ]
         },
@@ -246,7 +227,7 @@ const App = () => {
             title: "전문성 강화 자료 제공",
             items: [
                 "강의 제작 관련 자료, 템플릿, 체크리스트 등 유용한 자료 제공",
-                "최신 트렌드 및 기술 관련 자료에 대한 접근 권한 부여"
+                "최 트렌드 및 기술 관련 자료에 대한 접근 권한 부여"
             ]
         }
     ];
@@ -287,58 +268,51 @@ const App = () => {
         }
     ];
 
-    const features = [
-        { name: '맞춤형 커리큘럼', description: '각 참가자 니즈에 맞춘 개별화된 학습 경험', icon: UserCheck },
-        { name: '실전 중 교육', description: '이론과 실습을 병행하여 실제 강의 제작 스킬 향상', icon: BookOpen },
-        { name: '전문가 멘토링', description: '경험 많은 강사진의 1:1 피드백 및 조언', icon: Users },
-        { name: '수익화 전략', description: '강의 판매 및 마케팅 전략 수립 지원', icon: DollarSign },
-    ];
-
     const completionBenefits = [
         {
             icon: Award,
             title: "공식 수료증 발급",
-            description: "프로그램 수료를 인증하는 공식 수료증을 발급받아, 이력서와 포트폴리오에 활용 가능합니다. 강사로서의 경력을 공식적으로 증명할 수 있는 기회를 제공합니다."
+            description: "• 프로그램 수료를 인증하는 공식 수료증 발급\n• 이력서와 포트폴리오에 활용 가능\n• 강사로서의 경력을 공식적으로 증명할 수 있는 기회 제공"
         },
         {
             icon: Upload,
             title: "강의 콘텐츠 배포",
-            description: "참가자가 제작한 강의를 온라인 플랫폼에 게시할 수 있는 권한을 부여합니다. 개인 브랜드 및 전문성을 널리 알릴 수 있는 기회를 제공합니다."
+            description: "• 참가자가 제작한 강의를 온라인 플랫폼에 게시할 수 있는 권한 부여\n• 개인 브랜드 및 전문성을 널리 알릴 수 있는 기회 제공"
         },
         {
             icon: DollarSign,
             title: "수익화 기회",
-            description: "제작한 강의를 통해 직접 수익을 창출할 수 있는 기회를 제공합니다. 다한 수익화 모델(구독, 일회성 판매 등)에 대한 지속적인 지원을 받을 수 있습니다."
+            description: "• 제작한 강의를 통해 직접 수익을 창출할 수 있는 기회 제공\n• 다양한 수익화 모델(구독, 일회성 판매 등)에 대한 지속적인 지원"
         },
         {
             icon: Users,
             title: "멘토링 및 네트워킹",
-            description: "프로그램 종료 후에도 멘토와의 지속적��� 관계 유지가 가능합니다. 참가자 간의 네트워킹 기회를 통해 협업 및 정보 공유가 가능합니다."
+            description: "• 프로그램 종료 후에도 멘토와의 지속적인 관계 유지 가능\n• 참가자 간의 네트워킹 기회를 통해 협업 및 정보 공유 가능"
         },
         {
             icon: BookOpen,
             title: "추가 교육 및 리소스 제공",
-            description: "후속 교육 프로그램에 대한 우선 등록 및 할인 혜택을 제공합니다. 최신 기술 및 트렌드에 대한 자료 및 정보를 지속적으로 제공합니다."
+            description: "• 후속 교육 프로그램에 대한 우선 등록 및 할인 혜택 제공\n• 최신 기술 및 트렌드에 대한 자료 및 정보 지속적으로 제공"
         },
         {
             icon: LifeBuoy,
             title: "지속적인 지원 프로그램",
-            description: "프로그램 종료 후 지속적으로 멘토링 및 피드백을 지원합니다. 강의 판매 후 수강생들로부터 피드백을 받고, 이를 바탕으로 강의를 개선할 수 있는 기회를 제공합니다."
+            description: "• 프로그램 종료 후 지속적으로 멘토링 및 피드백 지원\n• 강의 판매 후 수강생들로부터 피드백을 받고, 이를 바탕으로 강의를 개선할 수 있는 기회 제공\n• 지속적인 자기 발전을 위한 리소스 및 자료 제공\n• 강의 판매 후 수익화 관련 추가 상담 기회 제공"
         },
         {
             icon: Users,
             title: "프라이빗 멤버십 커뮤니티 참여",
-            description: "프로그램 수료 후 전용 커뮤니티에 참여하여, 선별된 멤버들과의 경험 공유 및 협업 기회를 제공합니다. 새로운 아이디어와 트렌드를 배우고 나눌 수 있는 공간을 제공합니다."
+            description: "• 프로그램 수료 후 전용 커뮤니티에 참여하여, 선별된 멤버들과의 경험 공유 및 협업 기회 제공\n• 새로운 아이디어와 트렌드를 배우고 나눌 수 있는 공간 제공"
         },
         {
             icon: Zap,
             title: "AI 서비스 기획 솔루션 'method.' 이용 할인 혜택",
-            description: "AI 서비스 기획 솔루션 'method.'를 할인된 가격으로 이용할 수 있는 혜택을 제공합니다."
+            description: "• AI 서비스 기획 솔루션 'method.'를 할인된 가격으로 이용할 수 있는 혜택 제공"
         },
         {
             icon: Code,
             title: "소스코드 거래 플랫폼 '코드룸' 이용 할인 혜택",
-            description: "소스코드 거래 플랫폼 '코드룸'을 할인된 가격으로 이용할 수 있는 혜택을 제공합니다."
+            description: "• 소스코드 거래 플랫폼 '코드룸'을 할인된 가격으로 이용할 수 있는 혜택 제공"
         }
     ];
 
@@ -348,15 +322,16 @@ const App = () => {
 
             <Section title="프로그램 개요" bgColor="bg-gray-100" icon={Lightbulb}>
                 <div className="bg-white p-8 rounded-lg shadow-lg">
-                    <h3 className="text-2xl font-semibold mb-6 text-center text-indigo-600 font-subheading">"당신만의 강의, 지금 시작하세요!"</h3>
-                    <div className="space-y-4">
-                        <p>누구나 가지고 있는 특별한 지식과 경험이 있습니다. 우리와 함께하면 그 지식을 나누는 강사가 될 수 있습니다. 두려워하지 마세요, 여러분의 잠재력을 믿습니다.</p>
-                        <p>개인 맞춤형 커리큘럼으로 여러분에게 가장 적합한 강의 계획을 세우고, 전문가의 도움으로 강의 제작 전 과정을 지원합니다.</p>
-                        <p>이 프로그램을 통해 강의 기획부터 제작, 다양한 온라인 플랫폼 출시, 그리고 수익화까지 모든 과정을 경험하며 성장할 수 있습니다.</p>
-                        <p>여러분의 지식이 가치 있는 콘텐츠로 변화하는 여정을 함께 시작해보세요.</p>
+                    <h3 className="text-2xl font-semibold mb-6 text-indigo-600 font-subheading text-left">"당신만의 강의, 지금 시작하세요!"</h3>
+                    <div className="space-y-4 text-lg text-left">
+                        <p>여러분의 개발 지식을 수익으로 연결할 수 있는 기회를 제공합니다!</p>
+                        <p>이 프로그램은 단순한 강의 제작을 넘어, 여러분이 가진 독창적인 경험과 전문성을 활용하여 시장에서 경쟁력 있는 강의를 만드는 과정을 지원합니다.</p>
+                        <p>혼자서 강의를 만드는 건 쉽게 도전할 수 없는 어려운 과정입니다. 하지만 저희와 함께라면 여러분의 아이디어가 실제 수익으로 이어지는 놀라운 과정을 경험할 수 있습니다.</p>
+                        <p>메타인지적 접근을 통해 자신의 학습과 강의 제작을 체계적으로 관리하며 자신이 성장하는 모습을 보게 되는 경험을 할 수 있습니다.</p>
+                        <p>자신만의 색깔이 담긴 세상 어디에도 없는 독창적인 강의를 파이프코칭캠프에서 만드실 수 있습니다.</p>
                     </div>
-                    <h4 className="text-xl font-semibold mt-6 mb-4">이 프로그램은 여러분에게 다음과 같은 기회를 제공합니다:</h4>
-                    <ul className="list-disc pl-5 space-y-2">
+                    <h4 className="text-xl font-semibold mt-6 mb-4 text-left">이 프로그램은 여러분에게 다음과 같은 기회를 제공합니다:</h4>
+                    <ul className="list-disc pl-5 space-y-2 text-lg text-left">
                         <li>
                             <strong>자신의 목소리를 내는 강사로 성장</strong>
                             <p>여러분의 전문성을 기반으로 한 강의를 통해, 다른 사람들에게 가치를 전달하고 영향을 미치는 강사가 되어보세요.</p>
@@ -370,30 +345,30 @@ const App = () => {
                             <p>경험이 풍부한 멘토의 지원을 받을 수 있고, 자신도 멘토가 되어 새로운 기회를 창출할 수 있습니다.</p>
                         </li>
                     </ul>
-                    <p className="mt-6 text-lg font-semibold text-indigo-600">이제 여러분의 지식을 통해 새로운 가능성을 열어보세요!</p>
-                    <p className="mt-2">이 여정은 여러분이 새로운 모습으로 성장하는 첫걸음이 될 것입니다.</p>
+                    <p className="mt-6 text-lg font-semibold text-indigo-600 text-left">이제 여러분의 지식을 통해 새로운 가능성을 열어보세요!</p>
+                    <p className="mt-2 text-lg text-left">이 여정은 여러분이 새로운 모습으로 성장하는 첫걸음이 될 것입니다.</p>
                 </div>
             </Section>
 
             <Section title="운영진" bgColor="bg-white" icon={Users}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <h3 className="text-2xl font-bold mb-2 text-indigo-600">김상훈</h3>
-                        <p className="text-lg font-semibold mb-4 text-gray-700">비전 및 전략 수립 & 프로그램 운영 관리</p>
-                        <ul className="text-gray-700 space-y-2 list-disc pl-5">
+                        <h3 className="text-2xl font-bold mb-2 text-indigo-600 text-left">김상훈</h3>
+                        <p className="text-lg font-semibold mb-4 text-gray-700 text-left">비전 및 전략 수립 & 프로그램 운영 관리</p>
+                        <ul className="text-gray-700 space-y-2 list-disc pl-5 text-left">
                             <li>(현) "파이프빌더" CEO</li>
                             <li>(현) 초월적 청년단체 "청년엔진" 의장</li>
                             <li>(전) 공연&전시 기획 스타트업 "CONTACT" 대표</li>
-                            <li>(전) 건강한 식음료문화 프랜차이즈 "WEMIX(푸른세상협동조합)" 이사장</li>
+                            <li>(전) 건강한 식음료문화 프랜차이즈 "WEMIX(푸른세상협동조합)" 이사</li>
                             <li>(전) 건설 대기업 회계팀 근무</li>
                             <li>(전) 외국계 패션회사 인사팀 근무</li>
                             <li>(전) IT 대기업 품질관리팀 근무</li>
                         </ul>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <h3 className="text-2xl font-bold mb-2 text-indigo-600">이홍철</h3>
-                        <p className="text-lg font-semibold mb-4 text-gray-700">강의제작 교육 & 기술지원 & 플랫폼 관리</p>
-                        <ul className="text-gray-700 space-y-2 list-disc pl-5">
+                        <h3 className="text-2xl font-bold mb-2 text-indigo-600 text-left">이홍철</h3>
+                        <p className="text-lg font-semibold mb-4 text-gray-700 text-left">강의제작 교육 & 기술지원 & 플랫폼 관리</p>
+                        <ul className="text-gray-700 space-y-2 list-disc pl-5 text-left">
                             <li>(현) "파이프빌더" CTO</li>
                             <li>(현) 모바일 앱 개발 강의 컨텐츠 "홍드로이드" 유튜브 채널 운영</li>
                             <li>(현) Udemy, Inflearn, Class101 등 지식 공유자 활동</li>
@@ -403,8 +378,6 @@ const App = () => {
                     </div>
                 </div>
             </Section>
-
-            <FeatureSection title="프로그램 특징" features={features} />
 
             <Section title="대상" bgColor="bg-gray-100" icon={Target}>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -443,8 +416,8 @@ const App = () => {
             <Section title="프로그램 내용" bgColor="bg-gray-100" icon={BookOpen}>
                 <div className="bg-white p-8 rounded-lg shadow-lg">
                     <div className="mb-8">
-                        <h3 className="text-2xl font-bold mb-6 text-indigo-600 font-subheading">프로그램 운영 안내</h3>
-                        <ul className="list-disc pl-5 space-y-2 text-gray-700 font-body">
+                        <h3 className="text-2xl font-bold mb-6 text-indigo-600 font-subheading text-left">프로그램 운영 안내</h3>
+                        <ul className="list-disc pl-5 space-y-2 text-gray-700 font-body text-lg text-left">
                             <li>기본 주 1회 2시간씩, 4주 수료 프로그램입니다.</li>
                             <li>시작 날짜, 시간은 사전 인터뷰 후 결정됩니다.</li>
                             <li>해당 커리큘럼은 예시로, 참가자에 맞춰 변경될 수 있습니다.</li>
@@ -496,16 +469,16 @@ const App = () => {
 
             <ContactSection />
 
-            <Section title="환불 규정" bgColor="bg-gray-100" icon={RefreshCcw}>
+            <Section title="환불 규정 안내" bgColor="bg-gray-100" icon={RefreshCcw}>
                 <div className="bg-white p-8 rounded-lg shadow-lg">
                     <p className="text-gray-700 mb-6 text-center italic">
                         환불 신청시 학원법 규정에 근거하여 강의 참여 횟수에 따라 환불금이 정해집니다.
                     </p>
                     <ul className="list-none space-y-4">
                         {[
-                            { period: "파이프 코칭 캠프 시작 전", refund: "100% 환불 (33만원 환불)" },
-                            { period: "파이프 코칭 캠프 1/3 경과 전 (시작 후 10일 전까지)", refund: "2/3 금액 환불 (22만원 환불)" },
-                            { period: "파이프 코칭 캠프 1/2 경과 전 (시작 후 14일 전까지)", refund: "1/2 금액 환불 (16.5만원 환불)" },
+                            { period: "파이프 코칭 캠프 시작 전", refund: "100% 환불" },
+                            { period: "파이프 코칭 캠프 1/3 경과 전 (시작 후 10일 전까지)", refund: "2/3 금액 환불" },
+                            { period: "파이프 코칭 캠프 1/2 경과 전 (시작 후 14일 전까지)", refund: "1/2 금액 환불" },
                             { period: "파이프 코칭 캠프 1/2 경과 후 (2주 코스 후)", refund: "환불 불가" }
                         ].map((item, index) => (
                             <li key={index} className="flex items-center">
