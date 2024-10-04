@@ -1,5 +1,5 @@
 import React from 'react';
-import {DollarSign, Award, Zap, Briefcase, Sparkles, Users, BookOpen, Rocket, UserCheck, FileText, Upload, LifeBuoy, Code, Mail, MessageCircle, Target, Gift, CreditCard, RefreshCcw, Lightbulb, HelpCircle} from 'lucide-react';
+import {DollarSign, Award, Zap, Users, BookOpen, Rocket, UserCheck, FileText, Upload, LifeBuoy, Code, Mail, MessageCircle, Target, Gift, CreditCard, RefreshCcw, Lightbulb, HelpCircle} from 'lucide-react';
 import teachingIllustration from './assets/images/teaching.jpeg';
 import joinNowIllustration from './assets/images/join_now.jpeg';
 import './fonts.css'; // 폰트를 import하는 CSS 파일
@@ -379,7 +379,7 @@ const App = () => {
                         <p className="text-lg font-semibold mb-4 text-gray-700 text-left">비전 및 전략 수립 & 프로그램 운영 관리</p>
                         <ul className="text-gray-700 space-y-2 list-disc pl-5 text-left">
                             <li>(현) "파이프빌더" CEO</li>
-                            <li>(현) 초월적 청년단체 "청년엔진" 의장</li>
+                            <li>(현) 초월�� 청년단체 "청년엔진" 의장</li>
                             <li>(전) 공연&전시 기획 스타트업 "CONTACT" 대표</li>
                             <li>(전) 건강한 식음료문화 프랜차이즈 "WEMIX(푸른세상협동조합)" 이사</li>
                             <li>(전) 건설 대기업 회계팀 근무</li>
