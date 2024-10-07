@@ -5,6 +5,17 @@ import joinNowIllustration from './assets/images/join_now.jpeg';
 import './fonts.css'; // 폰트를 import하는 CSS 파일
 import { motion } from 'framer-motion';
 
+const ApplyButton = () => (
+    <a
+        href="https://docs.google.com/forms/d/1bvOguf3pLp-C8lu554utjxJB4VYsytHq2m__gya27-E/edit?pli=1"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-black py-6 px-24 rounded-full text-3xl hover:from-indigo-700 hover:to-purple-700 transition duration-300 shadow-lg hover:shadow-xl mt-8 font-body transform hover:scale-105"
+    >
+        신청하기
+    </a>
+);
+
 const Header = () => (
     <header className="relative bg-black text-white py-20 text-center">
         <div
@@ -22,14 +33,7 @@ const Header = () => (
             <p className="text-2xl max-w-3xl mx-auto font-subheading mb-4">
                 "당신의 지식을 수익으로! 강사로서의 첫걸음을 내딛으세요"
             </p>
-            <a
-                href="https://docs.google.com/forms/d/1bvOguf3pLp-C8lu554utjxJB4VYsytHq2m__gya27-E/edit?pli=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-white text-indigo-600 font-extrabold py-3 px-8 rounded-full text-xl hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl mt-6 font-body"
-            >
-                신청하기
-            </a>
+            <ApplyButton />
         </div>
     </header>
 );
@@ -45,16 +49,9 @@ const JoinNowSection = () => (
         />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
             <h2 className="text-4xl font-bold mb-8">지금 바로 신청하세요!</h2>
-            <p className="text-xl mb-8">여러분의 지식을 가치로 전환하는 흥미진진한 여정을 파이프코칭캠프에서 시작하세요!</p>
+            <p className="text-xl mb-8">여러분의 지식을 가치로 전환하는 흥미진진한 여정을 파이프코칭캠프에서 시작하세���!</p>
             <p className="text-lg mb-8">아래 버튼을 클릭하여 신청서를 작성해 주세요.</p>
-            <a
-                href="https://docs.google.com/forms/d/1bvOguf3pLp-C8lu554utjxJB4VYsytHq2m__gya27-E/edit?pli=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-white text-indigo-600 font-bold py-4 px-10 rounded-full text-2xl hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl"
-            >
-                신청하기
-            </a>
+            <ApplyButton />
         </div>
     </section>
 );
@@ -191,6 +188,18 @@ const SmallSection = ({ title, children, bgColor = "bg-white", icon: Icon }) => 
     </section>
 );
 
+const Footer = () => (
+    <footer className="bg-gray-800 text-white py-8 text-center font-body">
+        <div className="container mx-auto px-4">
+            <p className="mb-2">상호명 : 파이프빌더 | 대표자 : 김상훈, 이홍철</p>
+            <p className="mb-2">이메일 : pipecoachingcamp@gmail.com</p>
+            <p className="mb-2">통신판매업신고: 2023-서울은평-1122</p>
+            <p className="mb-2">사업자 번호 : 197-56-00693</p>
+            <p className="mb-4">주소 : 서울특별시 금천구 독산동 331-28</p>
+        </div>
+    </footer>
+);
+
 const App = () => {
     const targetAudience = [
         {
@@ -203,7 +212,7 @@ const App = () => {
         },
         {
             icon: BookOpen,
-            title: "강의 제작 초보자",
+            title: "강의 제작 초보",
             items: [
                 "강의 제작에 대한 경험이 없지만, 교육 콘텐츠에 관심이 있는 분",
                 "효과적인 강의 기획 및 제작 방법을 배우고 싶은 분"
@@ -299,7 +308,7 @@ const App = () => {
         },
         {
             icon: Upload,
-            title: "강의 콘텐츠 배포",
+            title: "강의 콘츠 배포",
             description: "• 참가자가 제작한 강의를 온라인 플랫폼에 게시할 수 있는 권한 부여\n• 개인 브랜드 및 전문성을 널리 알릴 수 있는 기회 제공"
         },
         {
@@ -315,7 +324,7 @@ const App = () => {
         {
             icon: BookOpen,
             title: "추가 교육 및 리소스 제공",
-            description: "• 후속 교육 프로그램에 대한 우선 등록 및 할인 혜택 제공\n• 최신 기술 및 트렌드에 대한 자료 및 정보 지속적으로 제공"
+            description: "• 후속 교육 프로그램에 대한 우선 등록 및 할인 택 제공\n• 신 기술 및 트렌드에 대한 자료 및 정보 지속적으로 제공"
         },
         {
             icon: LifeBuoy,
@@ -381,7 +390,7 @@ const App = () => {
                             <li>(현) "파이프빌더" CEO</li>
                             <li>(현) 초월적 청년단체 "청년엔진" 의장</li>
                             <li>(전) 공연&전시 기획 스타트업 "CONTACT" 대표</li>
-                            <li>(전) 건강한 식음료문화 프랜차이즈 "WEMIX(푸른세상협동조합)" 이사</li>
+                            <li>(전) 건강한 식음료문화 프랜차이즈 "WEMIX(푸른세상협동조합)" 이사장</li>
                             <li>(전) 건설 대기업 회계팀 근무</li>
                             <li>(전) 외국계 패션회사 인사팀 근무</li>
                             <li>(전) IT 대기업 품질관리팀 근무</li>
@@ -492,7 +501,7 @@ const App = () => {
                         33만원
                     </p>
                     <p className="text-xl text-indigo-600 font-semibold mb-4">
-                        한시적 얼리버드 할인 이벤트 진행 중!
+                        한시적 얼리버드 할인 이벤트 진행 중! (2024.10.27까지)
                     </p>
                     <p className="text-lg text-gray-600">
                         얼리버드 종료 이후 정상가 → <span className="font-semibold">55만원</span>
@@ -527,9 +536,7 @@ const App = () => {
 
             <FAB />
 
-            <footer className="bg-gray-800 text-white py-8 text-center font-body">
-                <p>&copy; 2024 파이프 코칭 캠프. All rights reserved.</p>
-            </footer>
+            <Footer />
         </div>
     );
 };
